@@ -1,24 +1,38 @@
-# README
+# Todos API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
 
-Things you may want to cover:
+bundle install
+rails s
 
-* Ruby version
+```
 
-* System dependencies
+You can use https://httpie.org/ to test the endpoints.
 
-* Configuration
+```
 
-* Database creation
+# GET /todos
+$ http :3000/todos
+# POST /todos
+$ http POST :3000/todos title=Mozart created_by=1
+# PUT /todos/:id
+$ http PUT :3000/todos/1 title=Beethoven
+# DELETE /todos/:id
+$ http DELETE :3000/todos/1
 
-* Database initialization
+```
 
-* How to run the test suite
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+# POST /todos
+$ http POST :3000/todos title=Mozart created_by=1
+# GET /todos/:todo_id/items
+$ http :3000/todos/2/items
+# POST /todos/:todo_id/items
+$ http POST :3000/todos/2/items name='Listen to 5th Symphony' done=false
+# PUT /todos/:todo_id/items/:id
+$ http PUT :3000/todos/2/items/1 done=true
+# DELETE /todos/:todo_id/items/1
+$ http DELETE :3000/todos/2/items/1
 
-* Deployment instructions
-
-* ...
+```
